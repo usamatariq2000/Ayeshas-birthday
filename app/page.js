@@ -1,5 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import pic from "./assets/back1.jpg";
+import Image from "next/image";
 
 const BirthdayApp = () => {
   const [candleCount, setCandleCount] = useState(0);
@@ -86,30 +88,67 @@ const BirthdayApp = () => {
 
   return (
     <div className="w-full h-screen">
+      <Image
+        src={pic}
+        alt="Background Image"
+        // layout="fill"
+        // objectFit="cover"
+
+        className="absolute w-full h-full"
+        quality={100}
+      />
       <div
         onClick={addCandle}
-        className="relative h-full w-full flex justify-center items-center"
+        className="relative h-full w-full flex justify-center items-center "
       >
-        <div className="relative">
-          {candles.map((candle) => (
-            <div
-              key={candle.id}
-              style={{
-                top: `-20px`,
-                right: `${candle.right}%`,
-                background: candle.color,
-              }}
-              className={`h-10 w-2 bg-black flex flex-col absolute `}
-            ></div>
-          ))}
-          <div className="h-[10rem] w-[25rem] bg-black rounded-t-[32px]"></div>
+        <div className=" flex flex-col items-center justify-center w-full">
+          <div className="relative w-[50%] md:w-auto">
+            {candles.map((candle) => (
+              <div
+                key={candle.id}
+                style={{
+                  top: `-40px`,
+                  right: `${candle.right}%`,
+                  background: candle.color,
+                }}
+                className={`h-10 w-2 bg-black flex flex-col absolute ml-10`}
+              ></div>
+            ))}
+            <div className="h-[10rem] w-[full] md:w-[20rem] bg-[#f7a5a4] rounded-t-[32px] flex justify-center px-7">
+              {" "}
+              <div className="w-10 h-10 rounded-b-[82px] bg-[#cfae59]"></div>
+              <div className="w-10 h-10 rounded-b-[82px] bg-[#4d4d4d]"></div>
+              <div className="w-10 h-10 rounded-b-[82px] bg-[#cfae59]"></div>
+              <div className="w-10 h-10 rounded-b-[82px] bg-[#4d4d4d]"></div>
+              <div className="w-10 h-10 rounded-b-[82px] bg-[#cfae59]"></div>
+              <div className="w-10 h-10 rounded-b-[82px] bg-[#4d4d4d]"></div>
+              <div className="w-10 h-10 rounded-b-[82px] bg-[#cfae59]"></div>
+            </div>
+          </div>
+          <div className="h-[10rem] w-[70%] md:w-[30rem] bg-[#fac2c2] rounded-t-[32px] flex justify-center px-7">
+            <div className="w-10 h-10 rounded-b-[82px] bg-[#cfae59]"></div>
+            <div className="w-10 h-10 rounded-b-[82px] bg-[#4d4d4d]"></div>
+            <div className="w-10 h-10 rounded-b-[82px] bg-[#cfae59]"></div>
+            <div className="w-10 h-10 rounded-b-[82px] bg-[#4d4d4d]"></div>
+            <div className="w-10 h-10 rounded-b-[82px] bg-[#cfae59]"></div>
+            <div className="w-10 h-10 rounded-b-[82px] bg-[#4d4d4d]"></div>
+            <div className="w-10 h-10 rounded-b-[82px] bg-[#cfae59]"></div>
+            <div className="w-10 h-10 rounded-b-[82px]  bg-[#4d4d4d]"></div>
+            <div className="w-10 h-10 rounded-b-[82px] bg-[#cfae59]"></div>
+          </div>
+          <div className="h-[2rem] w-[85%] md:w-[40rem] bg-[#3d2d01] rounded-full flex justify-center px-7"></div>
         </div>
-        <p className="absolute top-4 left-4">Counter: {candleCount}</p>
-        <p className="absolute top-4 right-4">
-          Status:{" "}
-          {blownOut
-            ? "Candles blown out"
-            : "Blow on the mic to extinguish candles"}
+        <p className="absolute top-10 md:top-4 left-4 font-semibold text-xl">
+          Years: {candleCount}
+        </p>
+        <p className="absolute top-40 md:top-28 font-bold text-2xl md:text-5xl ">
+          {blownOut ? (
+            <span className=" bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-transparent bg-clip-text p-4">
+              Happy Birthday Ayeshaa!!!!
+            </span>
+          ) : (
+            <span className=""></span>
+          )}
         </p>
       </div>
     </div>
