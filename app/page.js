@@ -91,9 +91,8 @@ const BirthdayApp = () => {
       <Image
         src={pic}
         alt="Background Image"
-        // layout="fill"
-        // objectFit="cover"
-
+        layout="fill"
+        objectFit="fill"
         className="absolute w-full h-full"
         quality={100}
       />
